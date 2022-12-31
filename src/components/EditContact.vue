@@ -1,5 +1,5 @@
 <template>
-  <form class="container-lg mt-5" @submit="editContact">
+  <form class="container-lg mt-5" @submit.prevent="editContact">
     <h1>Изменить данные контакта</h1>
     <div v-if="submit">
       <div class="mb-3">
