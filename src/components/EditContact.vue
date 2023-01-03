@@ -1,5 +1,5 @@
 <template>
-  <form class="container-lg mt-5" @submit.prevent="editContact">
+  <form class="container-lg mt-5" @submit.prevent>
     <h1>Изменить данные контакта</h1>
     <div>
       <div class="mb-3">
@@ -23,7 +23,13 @@
           </button>
         </router-link>
         <router-link to="/">
-          <button class="btn btn-danger ms-2" type="button">Отменить</button>
+          <button
+            class="btn btn-danger ms-2"
+            @click="editContact"
+            type="button"
+          >
+            Отменить
+          </button>
         </router-link>
       </ul>
     </div>
