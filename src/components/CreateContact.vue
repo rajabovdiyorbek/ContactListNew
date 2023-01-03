@@ -23,7 +23,7 @@
       <button v-if="disabled" class="btn btn-primary" :disabled="disabled()">
         OK
       </button>
-      <router-link to="/" v-else-if="!disabled">
+      <router-link to="/" v-else-if="disabledButton">
         <button
           @click="addContact"
           class="btn btn-primary"
