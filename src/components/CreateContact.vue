@@ -64,7 +64,6 @@ export default {
           this.errorEmailText = "Email уже используется";
           return;
         } else {
-          router.push("/");
           this.errorNumText = "";
           this.errorEmailText = "";
         }
@@ -83,6 +82,9 @@ export default {
         return (this.disabledButton = true);
       }
     },
+  },
+  updated() {
+    router.push("/");
   },
 };
 </script>
