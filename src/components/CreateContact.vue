@@ -25,6 +25,7 @@
       </button>
       <button
         v-else
+        @click="addContact"
         class="btn btn-primary"
         :disabled="
           this.name !== '' && this.number !== '' && this.email !== ''
