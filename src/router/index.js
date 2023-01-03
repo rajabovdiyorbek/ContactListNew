@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CreateContact from '../components/CreateContact'
-import ContactList from '../components/ContactList'
-import EditContact from '../components/EditContact'
+import CreateContact from '../components/view/CreateContact'
+import ContactList from '../components/view/ContactList'
+import EditContact from '../components/view/EditContact'
 
 Vue.use(VueRouter)
 

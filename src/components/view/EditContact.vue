@@ -36,12 +36,14 @@ export default {
   data() {
     return {
       id: this.$route.params.indx,
+      //we set data to find in LocalStorage
       contact: (JSON.parse(localStorage.getItem("contacts")) || []).find(
         (_, i) => this.$route.params.indx == i
       ),
     };
   },
   methods: {
+    //we Push changed contact and move to home page
     editContact: function () {
       const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
       contacts[Number(this.$route.params.indx)] = this.contact;
