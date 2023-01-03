@@ -71,6 +71,15 @@ export default {
       this.number = null;
       this.email = null;
     },
+    // disabled() {
+    //   if (this.name !== "" && this.number !== "" && this.email !== "") {
+    //     return false;
+    //   } else {
+    //     return true;
+    //   }
+    // },
+  },
+  computed: {
     disabled() {
       if (this.name !== "" && this.number !== "" && this.email !== "") {
         return false;
@@ -78,14 +87,6 @@ export default {
         return true;
       }
     },
-    // computed: {
-    //   disabled() {
-    //     if (this.name !== "" && this.number !== "" && this.email !== "") {
-    //       return false;
-    //     } else {
-    //       return true;
-    //     }
-    //   },
   },
 };
 </script>
