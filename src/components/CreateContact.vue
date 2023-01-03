@@ -20,7 +20,11 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <button @click="addContact" class="btn btn-primary" :disabled="disabled">
+      <button
+        @click="addContact"
+        class="btn btn-primary"
+        :disabled="disabledButton"
+      >
         Создать
       </button>
     </div>
@@ -28,7 +32,7 @@
 </template>
 
 <script>
-// import router from "@/router";
+import router from "@/router";
 
 export default {
   name: "CreateContact",
@@ -50,6 +54,12 @@ export default {
         email: this.email,
       };
 
+      if (this.name !== "" && this.number !== "" && this.email !== "") {
+        this.disabledButton = false;
+      } else {
+        this.disabledButton = true;
+      }
+
       const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
       for (let i = 0; i < contacts.length; i++) {
         if (contacts[i].number == newContact.number) {
@@ -66,26 +76,11 @@ export default {
       }
 
       contacts.push(newContact);
+      router.push("/");
       localStorage.setItem("contacts", JSON.stringify(contacts));
       this.name = "";
       this.number = null;
       this.email = null;
-    },
-    // disabled() {
-    //   if (this.name !== "" && this.number !== "" && this.email !== "") {
-    //     return false;
-    //   } else {
-    //     return true;
-    //   }
-    // },
-  },
-  computed: {
-    disabled() {
-      if (this.name !== "" && this.number !== "" && this.email !== "") {
-        return false;
-      } else {
-        return true;
-      }
     },
   },
 };
