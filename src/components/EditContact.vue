@@ -1,7 +1,7 @@
 <template>
   <form class="container-lg mt-5" @submit.prevent="editContact">
     <h1>Изменить данные контакта</h1>
-    <div v-if="submit">
+    <div>
       <div class="mb-3">
         <label class="form-label">Введите Имя</label>
         <input v-model="contact.name" type="text" class="form-control" />
@@ -27,11 +27,6 @@
         </router-link>
       </ul>
     </div>
-    <div v-else>
-      <h3 class="text-success mt-5">
-        Контакт успешно изменен вернитесь к списку..
-      </h3>
-    </div>
   </form>
 </template>
 
@@ -44,7 +39,6 @@ export default {
       contact: (JSON.parse(localStorage.getItem("contacts")) || []).find(
         (_, i) => this.$route.params.indx == i
       ),
-      submit: true,
     };
   },
   methods: {
@@ -52,8 +46,6 @@ export default {
       const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
       contacts[Number(this.$route.params.indx)] = this.contact;
       localStorage.setItem("contacts", JSON.stringify(contacts));
-
-      this.submit = false;
     },
   },
 };
