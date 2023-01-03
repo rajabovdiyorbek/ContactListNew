@@ -27,7 +27,7 @@
       >
         Создать
       </button>
-      <router-link to="/">
+      <router-link v-else to="/">
         <button
           @click="addContact"
           class="btn btn-primary"
