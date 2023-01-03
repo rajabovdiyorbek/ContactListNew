@@ -83,9 +83,11 @@ export default {
     },
     computed: {
       disabledMeth() {
-        this.name !== "" && this.number !== "" && this.email !== ""
-          ? (this.disabledButton = false)
-          : (this.disabledButton = true);
+        if (this.name !== "" && this.number !== "" && this.email !== "") {
+          return (this.disabledButton = false);
+        } else {
+          return (this.disabledButton = true);
+        }
       },
     },
 
