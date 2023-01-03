@@ -20,11 +20,7 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <button
-        @click="addContact"
-        class="btn btn-primary"
-        :disabled="disabled()"
-      >
+      <button @click="addContact" class="btn btn-primary" :disabled="disabled">
         Создать
       </button>
     </div>
@@ -32,7 +28,7 @@
 </template>
 
 <script>
-import router from "@/router";
+// import router from "@/router";
 
 export default {
   name: "CreateContact",
@@ -75,16 +71,15 @@ export default {
       this.number = null;
       this.email = null;
     },
+  },
+  computed: {
     disabled() {
-      if (this.name !== "" || this.number !== "" || this.email !== "") {
-        return (this.disabledButton = false);
+      if (this.name !== "" && this.number !== "" && this.email !== "") {
+        return false;
       } else {
-        return (this.disabledButton = true);
+        return true;
       }
     },
-  },
-  destroyed() {
-    router.push("/");
   },
 };
 </script>
