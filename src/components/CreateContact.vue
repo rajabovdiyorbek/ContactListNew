@@ -20,7 +20,15 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <button @click="addContact" class="btn btn-primary" :disabled="disable">
+      <button
+        @click="addContact"
+        class="btn btn-primary"
+        :disabled="
+          this.name !== '' && this.number !== '' && this.email !== ''
+            ? (this.disabledButton = false)
+            : (this.disabledButton = true)
+        "
+      >
         Создать
       </button>
     </div>
@@ -65,7 +73,8 @@ export default {
         }
       }
       contacts.push(newContact);
-      if (localStorage.setItem("contacts", JSON.stringify(contacts))) {
+      if (this.disabledButton) {
+        localStorage.setItem("contacts", JSON.stringify(contacts));
         router.push("/");
       }
       this.name = "";
