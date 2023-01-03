@@ -29,8 +29,12 @@
             ? (this.disabledButton = false)
             : (this.disabledButton = true)
         "
-      ></button>
-      <router-link v-else to="/"> Создать </router-link>
+      >
+        Создать
+      </button>
+      <router-link v-else to="/">
+        <button @click="addContact">Создать</button>
+      </router-link>
     </div>
   </form>
 </template>
