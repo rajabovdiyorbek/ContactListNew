@@ -4,21 +4,36 @@
     <div>
       <div class="mb-3">
         <label class="form-label">Введите Имя</label>
-        <input v-model="name" type="text" class="form-control" required />
+        <input
+          v-model="name"
+          type="text"
+          class="form-control"
+          :required="required"
+        />
       </div>
       <div class="mb-3">
         <label class="form-label"
           >Введите Номер
           <p class="text-danger">{{ errorNumText }}</p></label
         >
-        <input v-model="number" type="number" class="form-control" required />
+        <input
+          v-model="number"
+          type="number"
+          class="form-control"
+          :required="required"
+        />
       </div>
       <div class="mb-3">
         <label class="form-label"
           >Введите Email
           <p class="text-danger">{{ errorEmailText }}</p></label
         >
-        <input v-model="email" type="email" class="form-control" required />
+        <input
+          v-model="email"
+          type="email"
+          class="form-control"
+          :required="required"
+        />
       </div>
       <button
         @click="addContact"
@@ -48,6 +63,7 @@ export default {
       disabledButton: true,
       errorNumText: "",
       errorEmailText: "",
+      required: true,
     };
   },
   methods: {
