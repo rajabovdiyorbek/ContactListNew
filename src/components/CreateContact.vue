@@ -76,7 +76,7 @@ export default {
       this.email = null;
     },
     disabled() {
-      if (this.name !== "" && this.number !== "" && this.email !== "") {
+      if (this.name !== "" || this.number !== "" || this.email !== "") {
         return (this.disabledButton = false);
       } else {
         return (this.disabledButton = true);
