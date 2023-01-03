@@ -1,7 +1,7 @@
 <template>
   <form class="container-lg mt-5" @submit.prevent="addContact">
     <h1>Создать новый контакт</h1>
-    <div v-if="submit">
+    <div>
       <div class="mb-3">
         <label class="form-label">Введите Имя</label>
         <input v-model="name" type="text" class="form-control" required />
@@ -20,21 +20,19 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <button
-        class="btn btn-primary"
-        :disabled="
-          this.name !== '' && this.number && this.email
-            ? (this.disabledButton = false)
-            : this.disabledButton
-        "
-      >
-        Создать
-      </button>
-    </div>
-    <div v-else>
-      <h3 class="text-success mt-5">
-        Контакт успешно создан вернитесь к списку..
-      </h3>
+      <router-link to="/">
+        <button
+          class="btn btn-primary"
+          :disabled="
+            disabledMethod
+            // this.name !== '' && this.number && this.email
+            //   ? (this.disabledButton = false)
+            //   : this.disabledButton
+          "
+        >
+          Создать
+        </button>
+      </router-link>
     </div>
   </form>
 </template>
@@ -47,13 +45,20 @@ export default {
       name: "",
       number: null,
       email: null,
-      submit: true,
       disabledButton: true,
       errorNumText: "",
       errorEmailText: "",
     };
   },
   methods: {
+    disabledMethod: function () {
+      if (this.name !== "" && this.number !== "" && this.email !== "") {
+        return (this.disabledButton = false);
+      } else {
+        return (this.disabledButton = true);
+      }
+    },
+
     addContact: function () {
       const newContact = {
         name: this.name,
@@ -80,18 +85,14 @@ export default {
       this.name = "";
       this.number = null;
       this.email = null;
-      this.submit = false;
     },
-    disabled() {
-      if (this.name !== "" && this.number !== "" && this.email !== "") {
-        return (this.disabledButton = false);
-      } else {
-        return (this.disabledButton = true);
-      }
-    },
-  },
-  created() {
-    this.submit = true;
+    // disabled() {
+    //   if (this.name !== "" && this.number !== "" && this.email !== "") {
+    //     return (this.disabledButton = false);
+    //   } else {
+    //     return (this.disabledButton = true);
+    //   }
+    // },
   },
 };
 </script>
