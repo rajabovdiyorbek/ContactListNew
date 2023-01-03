@@ -21,6 +21,7 @@
         <input v-model="email" type="email" class="form-control" required />
       </div>
       <button
+        v-if="disabledButton"
         @click="addContact"
         class="btn btn-primary"
         :disabled="
@@ -28,9 +29,8 @@
             ? (this.disabledButton = false)
             : (this.disabledButton = true)
         "
-      >
-        <router-link to="/"> Создать </router-link>
-      </button>
+      ></button>
+      <router-link v-else to="/"> Создать </router-link>
     </div>
   </form>
 </template>
