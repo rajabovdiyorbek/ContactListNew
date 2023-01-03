@@ -20,19 +20,17 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <router-link to="/">
-        <button
-          @click="addContact"
-          class="btn btn-primary"
-          :disabled="
-            this.name !== '' && this.number !== '' && this.email !== ''
-              ? (this.disabledButton = false)
-              : (this.disabledButton = true)
-          "
-        >
-          Создать
-        </button>
-      </router-link>
+      <button
+        @click="addContact"
+        class="btn btn-primary"
+        :disabled="
+          this.name !== '' && this.number !== '' && this.email !== ''
+            ? (this.disabledButton = false)
+            : (this.disabledButton = true)
+        "
+      >
+        <router-link to="/"> Создать </router-link>
+      </button>
     </div>
   </form>
 </template>
