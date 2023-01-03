@@ -73,10 +73,10 @@ export default {
       this.name = "";
       this.number = null;
       this.email = null;
-      router.push("/");
     },
     disabled() {
       if (this.name !== "" && this.number !== "" && this.email !== "") {
+        router.push("/");
         return (this.disabledButton = false);
       } else {
         return (this.disabledButton = true);
