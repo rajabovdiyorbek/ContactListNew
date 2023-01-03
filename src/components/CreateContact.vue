@@ -25,9 +25,9 @@
           @click="addContact"
           class="btn btn-primary"
           :disabled="
-            this.name !== '' && this.number && this.email
+            this.name !== '' && this.number !== '' && this.email !== ''
               ? (this.disabledButton = false)
-              : this.disabledButton
+              : (this.disabledButton = true)
           "
         >
           Создать
@@ -78,13 +78,13 @@ export default {
       this.number = null;
       this.email = null;
     },
-    disabled() {
-      if (this.name !== "" && this.number !== "" && this.email !== "") {
-        return (this.disabledButton = false);
-      } else {
-        return (this.disabledButton = true);
-      }
-    },
+    // disabled() {
+    //   if (this.name !== "" && this.number !== "" && this.email !== "") {
+    //     return (this.disabledButton = false);
+    //   } else {
+    //     return (this.disabledButton = true);
+    //   }
+    // },
   },
 };
 </script>
