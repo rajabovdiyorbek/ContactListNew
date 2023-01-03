@@ -20,11 +20,7 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <button
-        @click="addContact"
-        class="btn btn-primary"
-        :disabled="disabledButton"
-      >
+      <button @click="addContact" class="btn btn-primary" :disabled="disable">
         Создать
       </button>
     </div>
@@ -68,18 +64,21 @@ export default {
           this.errorEmailText = "";
         }
       }
+      contacts.push(newContact);
+      if (localStorage.setItem("contacts", JSON.stringify(contacts))) {
+        router.push("/");
+      }
+      this.name = "";
+      this.number = null;
+      this.email = null;
+    },
+
+    disable() {
       if (this.name !== "" && this.number !== "" && this.email !== "") {
         return (this.disabledButton = false);
       } else {
         this.disabledButton = true;
       }
-
-      contacts.push(newContact);
-      router.push("/");
-      localStorage.setItem("contacts", JSON.stringify(contacts));
-      this.name = "";
-      this.number = null;
-      this.email = null;
     },
   },
 };
