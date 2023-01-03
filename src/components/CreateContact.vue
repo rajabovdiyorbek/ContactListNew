@@ -31,7 +31,7 @@
             //   : this.disabledButton
           "
         >
-          Создать
+          Создать контакт
         </button>
       </router-link>
     </div>
