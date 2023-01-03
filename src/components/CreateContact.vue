@@ -21,9 +21,9 @@
         <input v-model="email" type="email" class="form-control" required />
       </div>
       <button
-        v-if="disabledButton"
+        v-if="disabledMeth"
         class="btn btn-primary"
-        :disabled="disabledButton"
+        :disabled="disabledMeth"
       >
         Создать.
       </button>
