@@ -20,18 +20,11 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <button
-        v-if="disabledMeth"
-        class="btn btn-primary"
-        :disabled="disabledMeth"
-      >
-        Создать.
-      </button>
-      <router-link v-else to="/">
+      <router-link to="/">
         <button
           @click="addContact"
           class="btn btn-primary"
-          :disabled="disabledMeth"
+          :disabled="disabled"
         >
           Создать
         </button>
@@ -81,23 +74,13 @@ export default {
       this.number = null;
       this.email = null;
     },
-    computed: {
-      disabledMeth() {
-        if (this.name !== "" && this.number !== "" && this.email !== "") {
-          return (this.disabledButton = false);
-        } else {
-          return (this.disabledButton = true);
-        }
-      },
+    disabled() {
+      if (this.name !== "" && this.number !== "" && this.email !== "") {
+        return (this.disabledButton = false);
+      } else {
+        return (this.disabledButton = true);
+      }
     },
-
-    // disabled() {
-    //   if (this.name !== "" && this.number !== "" && this.email !== "") {
-    //     return (this.disabledButton = false);
-    //   } else {
-    //     return (this.disabledButton = true);
-    //   }
-    // },
   },
 };
 </script>
