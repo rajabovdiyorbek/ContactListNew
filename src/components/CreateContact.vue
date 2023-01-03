@@ -23,26 +23,19 @@
       <button
         v-if="disabledButton"
         class="btn btn-primary"
-        :disabled="
-          this.name !== '' && this.number !== '' && this.email !== ''
-            ? (this.disabledButton = false)
-            : (this.disabledButton = true)
-        "
+        :disabled="disabledMeth"
       >
         Создать
       </button>
-      <button
-        v-else
-        @click="addContact"
-        class="btn btn-primary"
-        :disabled="
-          this.name !== '' && this.number !== '' && this.email !== ''
-            ? (this.disabledButton = false)
-            : (this.disabledButton = true)
-        "
-      >
-        <router-link to="/">Создать</router-link>
-      </button>
+      <router-link to="/">
+        <button
+          @click="addContact"
+          class="btn btn-primary"
+          :disabled="disabledMeth"
+        >
+          Создать
+        </button>
+      </router-link>
     </div>
   </form>
 </template>
@@ -88,6 +81,14 @@ export default {
       this.number = null;
       this.email = null;
     },
+    computed: {
+      disabledMeth() {
+        this.name !== "" && this.number !== "" && this.email !== ""
+          ? (this.disabledButton = false)
+          : (this.disabledButton = true);
+      },
+    },
+
     // disabled() {
     //   if (this.name !== "" && this.number !== "" && this.email !== "") {
     //     return (this.disabledButton = false);
