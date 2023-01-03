@@ -17,11 +17,9 @@
       <ul
         class="list-group list-group-horizontal d-flex justify-content-end mt-2"
       >
-        <router-link to="/">
-          <button class="btn btn-primary" type="submit">
-            Сохранить Изменения
-          </button>
-        </router-link>
+        <button class="btn btn-primary" type="submit">
+          <router-link to="/"> Сохранить Изменения </router-link>
+        </button>
         <router-link to="/">
           <button
             class="btn btn-danger ms-2"
