@@ -22,7 +22,6 @@
       </div>
       <button
         v-if="disabledButton"
-        @click="addContact"
         class="btn btn-primary"
         :disabled="
           this.name !== '' && this.number !== '' && this.email !== ''
@@ -32,9 +31,9 @@
       >
         Создать
       </button>
-      <router-link v-else to="/">
-        <button @click="addContact">Создать</button>
-      </router-link>
+      <button v-else @click="addContact" class="btn btn-primary">
+        <router-link to="/">Создать</router-link>
+      </button>
     </div>
   </form>
 </template>
