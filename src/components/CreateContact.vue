@@ -73,21 +73,13 @@ export default {
         }
       }
       contacts.push(newContact);
-      if (!this.disabledButton) {
-        localStorage.setItem("contacts", JSON.stringify(contacts));
-        router.push("/");
-      }
+
+      localStorage.setItem("contacts", JSON.stringify(contacts));
+      router.push("/");
+
       this.name = "";
       this.number = null;
       this.email = null;
-    },
-
-    disable() {
-      if (this.name !== "" && this.number !== "" && this.email !== "") {
-        return (this.disabledButton = false);
-      } else {
-        this.disabledButton = true;
-      }
     },
   },
 };
