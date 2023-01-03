@@ -17,9 +17,11 @@
       <ul
         class="list-group list-group-horizontal d-flex justify-content-end mt-2"
       >
-        <button class="btn btn-primary" type="submit">
-          Сохранить Изменения
-        </button>
+        <router-link to="">
+          <button class="btn btn-primary" type="submit">
+            Сохранить Изменения
+          </button>
+        </router-link>
         <router-link to="/">
           <button class="btn btn-danger ms-2" type="button">Отменить</button>
         </router-link>
@@ -56,5 +58,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
