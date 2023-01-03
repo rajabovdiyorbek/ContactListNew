@@ -20,11 +20,11 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <router-link to="/" tag="button">
+      <router-link to="/">
         <button
           @click="addContact"
           class="btn btn-primary"
-          :disabled="disabled"
+          :disabled="disabled()"
         >
           Создать
         </button>
