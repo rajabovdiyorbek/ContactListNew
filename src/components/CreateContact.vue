@@ -54,12 +54,6 @@ export default {
         email: this.email,
       };
 
-      if (this.name !== "" && this.number !== "" && this.email !== "") {
-        this.disabledButton = false;
-      } else {
-        this.disabledButton = true;
-      }
-
       const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
       for (let i = 0; i < contacts.length; i++) {
         if (contacts[i].number == newContact.number) {
@@ -73,6 +67,11 @@ export default {
           this.errorNumText = "";
           this.errorEmailText = "";
         }
+      }
+      if (this.name !== "" && this.number !== "" && this.email !== "") {
+        return (this.disabledButton = false);
+      } else {
+        this.disabledButton = true;
       }
 
       contacts.push(newContact);
