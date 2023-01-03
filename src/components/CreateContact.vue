@@ -23,7 +23,7 @@
       <button
         v-if="disabledButton"
         class="btn btn-primary"
-        :disabled="disabledMeth"
+        :disabled="disabledButton"
       >
         Создать
       </button>
