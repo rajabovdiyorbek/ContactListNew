@@ -83,7 +83,7 @@ export default {
       }
     },
   },
-  updated() {
+  destroyed() {
     router.push("/");
   },
 };
