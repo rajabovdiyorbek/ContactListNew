@@ -52,12 +52,14 @@ export default {
   },
   methods: {
     addContact: function () {
+      //create new Object which we use after in our data
       const newContact = {
         name: this.name,
         number: this.number,
         email: this.email,
       };
 
+      //check intputs on uneque
       const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
       for (let i = 0; i < contacts.length; i++) {
         if (contacts[i].number == newContact.number) {
@@ -72,14 +74,13 @@ export default {
           this.errorEmailText = "";
         }
       }
+      //Add contact in LocaleStorage and move to home page with route
       contacts.push(newContact);
-
       localStorage.setItem("contacts", JSON.stringify(contacts));
       router.push("/");
-
-      this.name = "";
-      this.number = null;
-      this.email = null;
+      // this.name = "";
+      // this.number = null;
+      // this.email = null;
     },
   },
 };
