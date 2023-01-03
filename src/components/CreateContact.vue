@@ -1,5 +1,5 @@
 <template>
-  <form class="container-lg mt-5" @submit.prevent="addContact">
+  <form class="container-lg mt-5" @submit.prevent>
     <h1>Создать новый контакт</h1>
     <div>
       <div class="mb-3">
@@ -22,6 +22,7 @@
       </div>
       <router-link to="/">
         <button
+          @click="addContact"
           class="btn btn-primary"
           :disabled="
             disabledMethod
