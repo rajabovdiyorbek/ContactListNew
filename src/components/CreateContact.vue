@@ -1,42 +1,27 @@
 <template>
-  <form class="container-lg mt-5" @submit.prevent>
+  <form class="container-lg mt-5" @submit.prevent="addContact">
     <h1>Создать новый контакт</h1>
     <div>
       <div class="mb-3">
         <label class="form-label">Введите Имя</label>
-        <input
-          v-model="name"
-          type="text"
-          class="form-control"
-          :required="required"
-        />
+        <input v-model="name" type="text" class="form-control" required />
       </div>
       <div class="mb-3">
         <label class="form-label"
           >Введите Номер
           <p class="text-danger">{{ errorNumText }}</p></label
         >
-        <input
-          v-model="number"
-          type="number"
-          class="form-control"
-          :required="required"
-        />
+        <input v-model="number" type="number" class="form-control" required />
       </div>
       <div class="mb-3">
         <label class="form-label"
           >Введите Email
           <p class="text-danger">{{ errorEmailText }}</p></label
         >
-        <input
-          v-model="email"
-          type="email"
-          class="form-control"
-          :required="required"
-        />
+        <input v-model="email" type="email" class="form-control" required />
       </div>
       <button
-        @click="addContact"
+        type="submit"
         class="btn btn-primary"
         :disabled="
           this.name !== '' && this.number !== '' && this.email !== ''
@@ -63,7 +48,6 @@ export default {
       disabledButton: true,
       errorNumText: "",
       errorEmailText: "",
-      required: true,
     };
   },
   methods: {
