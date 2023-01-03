@@ -25,13 +25,12 @@
           @click="addContact"
           class="btn btn-primary"
           :disabled="
-            disabledMethod
-            // this.name !== '' && this.number && this.email
-            //   ? (this.disabledButton = false)
-            //   : this.disabledButton
+            this.name !== '' && this.number && this.email
+              ? (this.disabledButton = false)
+              : this.disabledButton
           "
         >
-          Создать контакт
+          Создать
         </button>
       </router-link>
     </div>
@@ -52,14 +51,6 @@ export default {
     };
   },
   methods: {
-    disabledMethod: function () {
-      if (this.name !== "" && this.number !== "" && this.email !== "") {
-        return (this.disabledButton = false);
-      } else {
-        return (this.disabledButton = true);
-      }
-    },
-
     addContact: function () {
       const newContact = {
         name: this.name,
@@ -87,13 +78,13 @@ export default {
       this.number = null;
       this.email = null;
     },
-    // disabled() {
-    //   if (this.name !== "" && this.number !== "" && this.email !== "") {
-    //     return (this.disabledButton = false);
-    //   } else {
-    //     return (this.disabledButton = true);
-    //   }
-    // },
+    disabled() {
+      if (this.name !== "" && this.number !== "" && this.email !== "") {
+        return (this.disabledButton = false);
+      } else {
+        return (this.disabledButton = true);
+      }
+    },
   },
 };
 </script>
