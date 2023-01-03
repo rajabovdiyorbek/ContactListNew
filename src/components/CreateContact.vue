@@ -25,7 +25,7 @@
         class="btn btn-primary"
         :disabled="disabledButton"
       >
-        Создать
+        Создать.
       </button>
       <router-link v-else to="/">
         <button
