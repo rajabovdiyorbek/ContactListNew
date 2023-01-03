@@ -20,7 +20,7 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <router-link to="/">
+      <router-link to="/" tag="button">
         <button
           @click="addContact"
           class="btn btn-primary"
