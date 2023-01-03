@@ -7,17 +7,11 @@
         <input v-model="contact.name" type="text" class="form-control" />
       </div>
       <div class="mb-3">
-        <label class="form-label"
-          >Введите Номер
-          <p class="text-danger">{{ errorNumText }}</p>
-        </label>
+        <label class="form-label">Введите Номер </label>
         <input v-model="contact.number" type="number" class="form-control" />
       </div>
       <div class="mb-3">
-        <label class="form-label"
-          >Введите Email
-          <p class="text-danger">{{ errorEmailText }}</p>
-        </label>
+        <label class="form-label">Введите Email </label>
         <input v-model="contact.email" type="email" class="form-control" />
       </div>
       <ul
@@ -49,28 +43,11 @@ export default {
         (_, i) => this.$route.params.indx == i
       ),
       submit: true,
-      errorNumText: "",
-      errorEmailText: "",
     };
   },
   methods: {
     editContact: function () {
       const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
-      for (let i = 0; i < contacts.length; i++) {
-        if (contacts[i].number == this.contact.number) {
-          this.errorNumText = "Контакт с такимже номером уже существует";
-          return;
-        }
-        if (contacts[i].email == this.contact.email) {
-          this.errorEmailText = "Email уже используется";
-          return;
-        } else {
-          this.errorNumText = "";
-          this.errorEmailText = "";
-        }
-      }
-
-      console.log(contacts, this.contact);
       contacts[Number(this.$route.params.indx)] = this.contact;
       localStorage.setItem("contacts", JSON.stringify(contacts));
 
