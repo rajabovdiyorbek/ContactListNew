@@ -73,7 +73,7 @@ export default {
         }
       }
       contacts.push(newContact);
-      if (this.disabledButton) {
+      if (!this.disabledButton) {
         localStorage.setItem("contacts", JSON.stringify(contacts));
         router.push("/");
       }
