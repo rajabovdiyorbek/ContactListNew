@@ -20,20 +20,20 @@
         >
         <input v-model="email" type="email" class="form-control" required />
       </div>
-      <router-link to="/">
-        <button
-          @click="addContact"
-          class="btn btn-primary"
-          :disabled="disabled()"
-        >
-          Создать
-        </button>
-      </router-link>
+      <button
+        @click="addContact"
+        class="btn btn-primary"
+        :disabled="disabled()"
+      >
+        Создать
+      </button>
     </div>
   </form>
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
   name: "CreateContact",
   data() {
@@ -73,6 +73,7 @@ export default {
       this.name = "";
       this.number = null;
       this.email = null;
+      router.push("/");
     },
     disabled() {
       if (this.name !== "" && this.number !== "" && this.email !== "") {
