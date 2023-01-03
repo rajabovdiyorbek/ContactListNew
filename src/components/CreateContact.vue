@@ -44,6 +44,7 @@ export default {
       disabledButton: true,
       errorNumText: "",
       errorEmailText: "",
+      activRoute: true,
     };
   },
   methods: {
@@ -68,15 +69,18 @@ export default {
           this.errorEmailText = "";
         }
       }
+
       contacts.push(newContact);
       localStorage.setItem("contacts", JSON.stringify(contacts));
+      if (this.activRoute) {
+        router.push("/");
+      }
       this.name = "";
       this.number = null;
       this.email = null;
     },
     disabled() {
       if (this.name !== "" && this.number !== "" && this.email !== "") {
-        router.push("/");
         return (this.disabledButton = false);
       } else {
         return (this.disabledButton = true);
