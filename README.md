@@ -1,7 +1,7 @@
 # contact-adder
 
 ## Project setup
-```
+````
 npm install
 ```
 
